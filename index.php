@@ -12,8 +12,11 @@
                     <td><span>nama</span><br><input type="text" name="nama" id="nama"/></td>
                 </tr>
                 <tr>
-                    <td><span>jurusan</span><br><input type="text" name="jurusan" id="jurusan"/></td><td><span>kota asal</span><br><input type="text" name="kota asal" id="kota"/></td>
+                    <td><span>jurusan</span><br><input type="text" name="jurusan" id="jurusan"/></td>
                 </tr>
+             <tr>
+                   <td><span>kota</span><br><input type="text" name="kota asal" id="kota"/></td>
+             </tr>
                 <tr>
                     <td colspan='2'><br><input type="submit" name="submit" value="Submit" /></td>
                 </tr>
