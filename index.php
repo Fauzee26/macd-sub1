@@ -1,81 +1,11 @@
 <html>
  <head>
- <Title>Registration Form</Title>
- <style type="text/css">
- 	body { background-color: #055186;
- 	    color: #333; font-size: .85em; margin: 20; padding: 20;
- 	    font-family: Helvetica, Sans-Serif;
- 	}
- 	h1, h2, h3,{ color: #000; margin-bottom: 0; padding-bottom: 0; }
- 	h1 { font-size: 2em; }
- 	h2 { font-size: 1.75em; }
- 	h3 { font-size: 1.2em; }
- 	table { margin-top: 0.75em; border-collapse: collapse}
- 	th { font-size: 0.8em; text-align: left; border: none; padding-left: 0; }
- 	td { padding: 0.2em; border: 0 none; }
-    .table-container th { padding: 0.8em; border-bottom: 1px solid #ccc}
-    .table-container td { font-size: 0.8em; padding: 0.8em; border-bottom: 1px solid #ccc}
-    span {font-size: 0.8em;}
-    input[type="text"],
-    input[type="email"],
-    input[type="tel"],
-    textarea {
-        padding: 8px;
-        font-size: 14px;
-        border: 1px solid #d7dbe8;
-        border-radius: 4px;
-        width: 100% !important;
-        margin-bottom: 8px !important;
-    }
-    textarea{
-        resize: none;
-        height: 150px;
-    }
-    input[type="submit"] {
-        background: #ffd200;
-        border-radius: 100px;
-        padding: 12px 16px 12px 16px !important;
-        font-size: 12px !important;
-        color: #055186 !important;
-        outline: none !important;
-        border: none !important;
-        min-width: 150px !important;
-        text-transform: uppercase;
-        cursor: pointer;
-        display: inline-block !important;
-        text-align: center;
-    }
-    .container {
-        width: 900px;
-        height: 80%;
-        position: relative;
-        background: #fff;
-        border-radius: 8px;
-        padding: 10px 30px 10px 30px;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        -webkit-transform: translate(-50%, -50%);
-    }
-    .form-container, .table-container {
-        float: left;
-    }
-    .form-container {
-        width: 36%;
-        margin-right: 30px;
-    }   
-    .table-container{ 
-        width: 60%;
-        height: 100%;
-        overflow-x: scroll;
-        overflow-y: scroll;
-    }
- </style>
+ <Title>MACD- Sub1</Title>
  </head>
  <body>
- <div class='container'>
-    <div class='form-container'>
-        <h1>Register here!</h1>
+ <div>
+    <div>
+        <h1>Fill the form!</h1>
         <p>Fill in details, then click <strong>Submit</strong> to register.</p>
         <form method="post" action="index.php" enctype="multipart/form-data" >
             <table>
