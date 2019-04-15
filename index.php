@@ -14,9 +14,7 @@
                 <tr>
                     <td><span>jurusan</span><br><input type="text" name="jurusan" id="jurusan"/></td>
                 </tr>
-             <tr>
-                   <td><span>kota</span><br><input type="text" name="kota asal" id="kota"/></td>
-             </tr>
+             
                 <tr>
                     <td colspan='2'><br><input type="submit" name="submit" value="Submit" /></td>
                 </tr>
@@ -39,15 +37,13 @@
             try {
                 $name = $_POST['nama'];
                 $jurusan = $_POST['jurusan'];
-                $kota = $_POST['kota'];
-                $conn->exec("INSERT INTO [dbo].[form] (nama, jurusan, kota) VALUES ('$name','$jurusan','$kota')");
+                $conn->exec("INSERT INTO [dbo].[formm] (nama, jurusan) VALUES ('$name','$jurusan')");
             } catch(Exception $e) {
                 echo "Failed: " . $e;
             }
-            echo "<h3>Your're registered!</h3>";
         } 
             try {
-                $sql_select = "SELECT * FROM [dbo].[form]";
+                $sql_select = "SELECT * FROM [dbo].[formm]";
                 $stmt = $conn->query($sql_select);
                 $registrants = $stmt->fetchAll(); 
                 if(count($registrants) > 0) {
@@ -55,11 +51,9 @@
                     echo "<table>";
                     echo "<tr><th>nama</th>";
                     echo "<th>jurusan</th>";
-                    echo "<th>kota asal</th>";
                     foreach($registrants as $registrant) {
                         echo "<tr><td>".$registrant['nama']."</td>";
                         echo "<td>".$registrant['jurusan']."</td>";
-                        echo "<td>".$registrant['kota']."</td>";
                     }
                     echo "</table>";
                 } else {
