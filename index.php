@@ -37,7 +37,7 @@
                 $name = $_POST['nama'];
                 $jurusan = $_POST['jurusan'];
                 $kota = $_POST['kota'];
-                $conn->exec("INSERT INTO [dbo].[form] (nama, jurusan, kota_asal) VALUES ('$name','$jurusan','$kota')");
+                $conn->exec("INSERT INTO [dbo].[form] (nama, jurusan, kota) VALUES ('$name','$jurusan','$kota')");
             } catch(Exception $e) {
                 echo "Failed: " . $e;
             }
@@ -54,9 +54,9 @@
                     echo "<th>jurusan</th>";
                     echo "<th>kota asal</th>";
                     foreach($registrants as $registrant) {
-                        echo "<tr><td>".$registrant['name']."</td>";
+                        echo "<tr><td>".$registrant['nama']."</td>";
                         echo "<td>".$registrant['jurusan']."</td>";
-                        echo "<td>".$registrant['kota_asal']."</td>";
+                        echo "<td>".$registrant['kota']."</td>";
                     }
                     echo "</table>";
                 } else {
