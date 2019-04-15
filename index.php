@@ -6,17 +6,13 @@
  <div>
     <div>
         <h1>Fill the form!</h1>
-        <p>Fill in details, then click <strong>Submit</strong> to register.</p>
         <form method="post" action="index.php" enctype="multipart/form-data" >
             <table>
                 <tr>
-                    <td><span>Name</span><br><input type="text" name="name" id="name"/></td><td><span>Job</span><br><input type="text" name="job" id="job"/></td>
+                    <td><span>nama</span><br><input type="text" name="nama" id="nama"/></td>
                 </tr>
                 <tr>
-                    <td><span>Email</span><br><input type="email" name="email" id="email"/></td><td><span>Phone</span><br><input type="tel" name="phone" id="phone"/></td>
-                </tr>
-                <tr>
-                    <td colspan='2'><span>Address</span><br><textarea name="address" id="address"></textarea></td>
+                    <td><span>jurusan</span><br><input type="text" name="jurusan" id="jurusan"/></td><td><span>kota asal</span><br><input type="text" name="kota asal" id="kota"/></td>
                 </tr>
                 <tr>
                     <td colspan='2'><br><input type="submit" name="submit" value="Submit" /></td>
@@ -38,38 +34,29 @@
         }
         if (isset($_POST['submit'])) {
             try {
-                $name = $_POST['name'];
-                $email = $_POST['email'];
-                $job = $_POST['job'];
-                $phone = $_POST['phone'];
-                $address = $_POST['address'];
-                $date = date("Y-m-d");
-                $conn->exec("INSERT INTO [dbo].[User] (name, email, job, phone, address, date) VALUES ('$name','$email','$job','$phone','$address','$date')");
+                $name = $_POST['nama'];
+                $jurusan = $_POST['jurusan'];
+                $kota = $_POST['kota'];
+                $conn->exec("INSERT INTO [dbo].[form] (nama, jurusan, kota_asal) VALUES ('$name','$jurusan','$kota')");
             } catch(Exception $e) {
                 echo "Failed: " . $e;
             }
             echo "<h3>Your're registered!</h3>";
         } 
             try {
-                $sql_select = "SELECT * FROM [dbo].[User]";
+                $sql_select = "SELECT * FROM [dbo].[form]";
                 $stmt = $conn->query($sql_select);
                 $registrants = $stmt->fetchAll(); 
                 if(count($registrants) > 0) {
                     echo "<h2>Registered user:</h2>";
                     echo "<table>";
-                    echo "<tr><th>Name</th>";
-                    echo "<th>Email</th>";
-                    echo "<th>Job</th>";
-                    echo "<th>Phone</th>";
-                    echo "<th>Address</th>";
-                    echo "<th>Date</th></tr>";
+                    echo "<tr><th>nama</th>";
+                    echo "<th>jurusan</th>";
+                    echo "<th>kota asal</th>";
                     foreach($registrants as $registrant) {
                         echo "<tr><td>".$registrant['name']."</td>";
-                        echo "<td>".$registrant['email']."</td>";
-                        echo "<td>".$registrant['job']."</td>";
-                        echo "<td>".$registrant['phone']."</td>";
-                        echo "<td>".$registrant['address']."</td>";
-                        echo "<td>".$registrant['date']."</td></tr>";
+                        echo "<td>".$registrant['jurusan']."</td>";
+                        echo "<td>".$registrant['kota_asal']."</td>";
                     }
                     echo "</table>";
                 } else {
