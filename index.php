@@ -121,18 +121,18 @@ $fileToUpload = strtolower($_FILES["fileToUpload"]["name"]);
         if (isset($_POST['submit'])) {
             
 
-    $createContainerOptions = new CreateContainerOptions();
-    $createContainerOptions->setPublicAccess(PublicAccessType::CONTAINER_AND_BLOBS);
+    // $createContainerOptions = new CreateContainerOptions();
+    // $createContainerOptions->setPublicAccess(PublicAccessType::CONTAINER_AND_BLOBS);
 
-    // Set container metadata.
-    $createContainerOptions->addMetaData("key1", "value1");
-    $createContainerOptions->addMetaData("key2", "value2");
+    // // Set container metadata.
+    // $createContainerOptions->addMetaData("key1", "value1");
+    // $createContainerOptions->addMetaData("key2", "value2");
 
       $containerName = "mycontainer";
     try {
 
   // Create container.
-        $blobClient->createContainer($containerName, $createContainerOptions);
+        // $blobClient->createContainer($containerName, $createContainerOptions);
        
        $myfile = fopen($fileToUpload, "r") or die("Unable to open file!");
         fclose($myfile);
