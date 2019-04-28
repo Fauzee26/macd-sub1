@@ -18,7 +18,6 @@
                 <div class="mt-4 mb-2">
             <form class="d-flex justify-content-lefr" action="index.php" method="post" enctype="multipart/form-data">
                 <input type="file" name="fileToUpload" accept=".jpeg,.jpg,.png" required="">
-                <input type="submit" name="submit" value="Upload">
             </form>
         </div>
                 <tr>
@@ -29,6 +28,22 @@
     </div>
     <div class='table-container'>
     <?php
+
+    require_once 'vendor/autoload.php';
+require_once "./random_string.php";
+
+use MicrosoftAzure\Storage\Blob\BlobRestProxy;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
+use MicrosoftAzure\Storage\Blob\Models\ListBlobsOptions;
+use MicrosoftAzure\Storage\Blob\Models\CreateContainerOptions;
+use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
+
+$connectionString = "DefaultEndpointsProtocol=https;AccountName=fauzistorages;AccountKey=u0iy9kBTdEd7bRhsTs1bIa3AQ0y29lf6h/YjLet0eJCrmVBeAVEuiS7ZPDOmrVHz8RkpOHmv41Jfcv5dBcslZA==;EndpointSuffix=core.windows.net";
+
+// Create blob client.
+$blobClient = BlobRestProxy::createBlobService($connectionString);
+
+
         $host = "dicodingazuredb.database.windows.net";
         $user = "fauzee26";
         $pass = "!backpacker2602";
@@ -40,9 +55,26 @@
             echo "Failed: " . $e;
         }
         if (isset($_POST['submit'])) {
+
             $fileToUpload = strtolower($_FILES["fileToUpload"]["name"]);
     $content = fopen($_FILES["fileToUpload"]["tmp_name"], "r");
-    // echo fread($content, filesize($fileToUpload));
+    
+    $createContainerOptions = new CreateContainerOptions();
+    $createContainerOptions->setPublicAccess(PublicAccessType::CONTAINER_AND_BLOBS);
+
+    // Set container metadata.
+    $createContainerOptions->addMetaData("key1", "value1");
+    $createContainerOptions->addMetaData("key2", "value2");
+
+      $containerName = "my_container";
+
+        // Create container.
+        $blobClient->createContainer($containerName, $createContainerOptions);
+
+       
+        //Upload blob
+        $blobClient->createBlockBlob($containerName, $fileToUpload, $content);
+
     $blobClient->createBlockBlob("my_container", $fileToUpload, $content);
             try {
                 $name = $_POST['nama'];
