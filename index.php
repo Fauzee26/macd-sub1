@@ -79,7 +79,8 @@ use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
         if (isset($_POST['submit'])) {
             $url = "https://fauzistorages.blob.core.windows.net/mycontainer/";
                     echo "$url$fileToUpload";
-                    // echo $fileToUpload;
+                    $filename=$_FILES['fileToUpload']['name'];
+echo $filename;
 
             try {
                 $name = $_POST['nama'];
