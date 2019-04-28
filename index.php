@@ -115,8 +115,6 @@ use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
                                 </form>
                             </td>
 
-                        echo "<td>".$registrant['image']."</td>";
-
 
                         <?php
 
