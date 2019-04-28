@@ -15,6 +15,12 @@
                     <td><span>jurusan</span><br><input type="text" name="jurusan" id="jurusan"/></td>
                 </tr>
              
+                <div class="mt-4 mb-2">
+            <form class="d-flex justify-content-lefr" action="index.php" method="post" enctype="multipart/form-data">
+                <input type="file" name="fileToUpload" accept=".jpeg,.jpg,.png" required="">
+                <input type="submit" name="submit" value="Upload">
+            </form>
+        </div>
                 <tr>
                     <td colspan='2'><br><input type="submit" name="submit" value="Submit" /></td>
                 </tr>
@@ -34,6 +40,10 @@
             echo "Failed: " . $e;
         }
         if (isset($_POST['submit'])) {
+            $fileToUpload = strtolower($_FILES["fileToUpload"]["name"]);
+    $content = fopen($_FILES["fileToUpload"]["tmp_name"], "r");
+    // echo fread($content, filesize($fileToUpload));
+    $blobClient->createBlockBlob("my_container", $fileToUpload, $content);
             try {
                 $name = $_POST['nama'];
                 $jurusan = $_POST['jurusan'];
