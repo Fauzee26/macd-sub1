@@ -117,9 +117,9 @@ use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
                         </tr>
                         <?php
 
-                        echo "<tr><td>".$registrant['nama']."</td>";
-                        echo "<td>".$registrant['jurusan']."</td>";
-                        echo "<td>".$registrant['image']."</td>";
+                        // echo "<tr><td>".$registrant['nama']."</td>";
+                        // echo "<td>".$registrant['jurusan']."</td>";
+                        // echo "<td>".$registrant['image']."</td>";
                     }
 
                     echo "</table>";
