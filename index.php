@@ -111,14 +111,15 @@ use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
     <div>
         <?php
 
-        if (isset($_POST['submit'])) {
-$connectionString = "DefaultEndpointsProtocol=https;AccountName=fauzistorages;AccountKey=MsWpr23l3UhcBhn4eLQ9m4b6Vk11q5UG8x0pA/NoMtVzBwk/ee75Eny8OY93UZzh3wMqCKZMe/jaG1mCRJfdNQ==;EndpointSuffix=core.windows.net";
+$connectionString = "DefaultEndpointsProtocol=https;AccountName=fauzistorages;AccountKey=MsWpr23l3UhcBhn4eLQ9m4b6Vk11q5UG8x0pA/NoMtVzBwk/ee75Eny8OY93UZzh3wMqCKZMe/jaG1mCRJfdNQ==";
 
 // Create blob client.
 $blobClient = BlobRestProxy::createBlobService($connectionString);
-            $fileToUpload = strtolower($_FILES["fileToUpload"]["name"]);
-    $content = fopen($_FILES["fileToUpload"]["tmp_name"], "r");
-    
+$fileToUpload = strtolower($_FILES["fileToUpload"]["name"]);
+
+        if (isset($_POST['submit'])) {
+            
+
     $createContainerOptions = new CreateContainerOptions();
     $createContainerOptions->setPublicAccess(PublicAccessType::CONTAINER_AND_BLOBS);
 
@@ -127,13 +128,33 @@ $blobClient = BlobRestProxy::createBlobService($connectionString);
     $createContainerOptions->addMetaData("key2", "value2");
 
       $containerName = "my_container";
+    try {
 
-        // Create container.
+  // Create container.
         $blobClient->createContainer($containerName, $createContainerOptions);
        
+    $content = fopen($_FILES["fileToUpload"]["tmp_name"], "r");
+    
+      
         //Upload blob
         $blobClient->createBlockBlob($containerName, $fileToUpload, $content);
-
+}
+    catch(ServiceException $e){
+        // Handle exception based on error codes and messages.
+        // Error codes and messages are here:
+        // http://msdn.microsoft.com/library/azure/dd179439.aspx
+        $code = $e->getCode();
+        $error_message = $e->getMessage();
+        echo $code.": ".$error_message."<br />";
+    }
+    catch(InvalidArgumentTypeException $e){
+        // Handle exception based on error codes and messages.
+        // Error codes and messages are here:
+        // http://msdn.microsoft.com/library/azure/dd179439.aspx
+        $code = $e->getCode();
+        $error_message = $e->getMessage();
+        echo $code.": ".$error_message."<br />";
+    }
             }
         ?>
     </div>
