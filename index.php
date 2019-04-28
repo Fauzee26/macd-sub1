@@ -127,7 +127,7 @@ $fileToUpload = strtolower($_FILES["fileToUpload"]["name"]);
     $createContainerOptions->addMetaData("key1", "value1");
     $createContainerOptions->addMetaData("key2", "value2");
 
-      $containerName = "my_container";
+      $containerName = "mycontainer";
     try {
 
   // Create container.
