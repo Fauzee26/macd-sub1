@@ -112,57 +112,51 @@ use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
         <?php
 
 $connectionString = "DefaultEndpointsProtocol=https;AccountName=fauzistorages;AccountKey=MsWpr23l3UhcBhn4eLQ9m4b6Vk11q5UG8x0pA/NoMtVzBwk/ee75Eny8OY93UZzh3wMqCKZMe/jaG1mCRJfdNQ==";
+      $containerName = "mycontainer";
 
 // Create blob client.
 $blobClient = BlobRestProxy::createBlobService($connectionString);
 
-$fileToUpload = strtolower($_FILES["fileToUpload"]["name"]);
 
         if (isset($_POST['submit'])) {
             
+$fileToUpload = strtolower($_FILES["fileToUpload"]["name"]);
 
-    // $createContainerOptions = new CreateContainerOptions();
-    // $createContainerOptions->setPublicAccess(PublicAccessType::CONTAINER_AND_BLOBS);
-
-    // // Set container metadata.
-    // $createContainerOptions->addMetaData("key1", "value1");
-    // $createContainerOptions->addMetaData("key2", "value2");
-
-      $containerName = "mycontainer";
-    try {
+  
+    // try {
 
   // Create container.
         // $blobClient->createContainer($containerName, $createContainerOptions);
        
        // $myfile = fopen($fileToUpload, "r") or die("Unable to open file!");
        //  fclose($myfile);
-        
+
        # Mengunggah file sebagai block blob
-echo "Uploading BlockBlob: ".PHP_EOL;
-echo $fileToUpload;
-echo "<br />";
+// echo "Uploading BlockBlob: ".PHP_EOL;
+// echo $fileToUpload;
+// echo "<br />";
     
     $content = fopen($_FILES["fileToUpload"]["tmp_name"], "r");
       
         //Upload blob
         $blobClient->createBlockBlob($containerName, $fileToUpload, $content);
-}
-    catch(ServiceException $e){
-        // Handle exception based on error codes and messages.
-        // Error codes and messages are here:
-        // http://msdn.microsoft.com/library/azure/dd179439.aspx
-        $code = $e->getCode();
-        $error_message = $e->getMessage();
-        echo $code.": ".$error_message."<br />";
-    }
-    catch(InvalidArgumentTypeException $e){
-        // Handle exception based on error codes and messages.
-        // Error codes and messages are here:
-        // http://msdn.microsoft.com/library/azure/dd179439.aspx
-        $code = $e->getCode();
-        $error_message = $e->getMessage();
-        echo $code.": ".$error_message."<br />";
-    }
+// }
+//     catch(ServiceException $e){
+//         // Handle exception based on error codes and messages.
+//         // Error codes and messages are here:
+//         // http://msdn.microsoft.com/library/azure/dd179439.aspx
+//         $code = $e->getCode();
+//         $error_message = $e->getMessage();
+//         echo $code.": ".$error_message."<br />";
+//     }
+//     catch(InvalidArgumentTypeException $e){
+//         // Handle exception based on error codes and messages.
+//         // Error codes and messages are here:
+//         // http://msdn.microsoft.com/library/azure/dd179439.aspx
+//         $code = $e->getCode();
+//         $error_message = $e->getMessage();
+//         echo $code.": ".$error_message."<br />";
+//     }
             }
         ?>
     </div>
