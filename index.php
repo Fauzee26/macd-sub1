@@ -77,6 +77,8 @@ use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
             echo "Failed: " . $e;
         }
         if (isset($_POST['submit'])) {
+                    echo $fileToUpload;
+
             try {
                 $name = $_POST['nama'];
                 $jurusan = $_POST['jurusan'];
@@ -142,7 +144,6 @@ $fileToUpload = strtolower($_FILES["fileToUpload"]["name"]);
         //Upload blob
         $blobClient->createBlockBlob($containerName, $fileToUpload, $content);
 
-        echo $fileToUpload;
 // }
 //     catch(ServiceException $e){
 //         // Handle exception based on error codes and messages.
