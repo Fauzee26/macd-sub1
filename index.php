@@ -112,7 +112,7 @@ use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
         <?php
 
         if (isset($_POST['submit'])) {
-$connectionString = "DefaultEndpointsProtocol=https;AccountName=fauzistorages;AccountKey=u0iy9kBTdEd7bRhsTs1bIa3AQ0y29lf6h/YjLet0eJCrmVBeAVEuiS7ZPDOmrVHz8RkpOHmv41Jfcv5dBcslZA==;EndpointSuffix=core.windows.net";
+$connectionString = "DefaultEndpointsProtocol=https;AccountName=fauzistorages;AccountKey=u0iy9kBTdEd7bRhsTs1bIa3AQ0y29lf6h/YjLet0eJCrmVBeAVEuiS7ZPDOmrVHz8RkpOHmv41Jfcv5dBcslZA==";
 
 // Create blob client.
 $blobClient = BlobRestProxy::createBlobService($connectionString);
