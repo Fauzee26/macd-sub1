@@ -134,8 +134,8 @@ $fileToUpload = strtolower($_FILES["fileToUpload"]["name"]);
   // Create container.
         // $blobClient->createContainer($containerName, $createContainerOptions);
        
-       $myfile = fopen($fileToUpload, "r") or die("Unable to open file!");
-        fclose($myfile);
+       // $myfile = fopen($fileToUpload, "r") or die("Unable to open file!");
+       //  fclose($myfile);
         
        # Mengunggah file sebagai block blob
 echo "Uploading BlockBlob: ".PHP_EOL;
