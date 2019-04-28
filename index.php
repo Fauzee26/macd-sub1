@@ -55,7 +55,7 @@ use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
              
                 <div class="mt-4 mb-2">
             <form class="d-flex justify-content-lefr" action="index.php" method="post" enctype="multipart/form-data">
-                <input type="file" name="fileToUpload" accept=".jpeg,.jpg,.png" required="">
+                <input type="file" name="fileToUpload" id="fileToUpload" accept=".jpeg,.jpg,.png" required="">
             </form>
         </div>
                 <tr>
