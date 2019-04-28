@@ -102,15 +102,17 @@ use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
                     echo "<tr><th>nama</th>";
                     echo "<th>jurusan</th>";
                     echo "<th>image</th>";
+                    echo "<th>action</th>";
 
                     foreach($registrants as $registrant) {
                         ?>
                         <tr>
                             <td><?php echo "".$registrant['nama']."" ?></td>
                             <td><?php echo "".$registrant['jurusan']."" ?></td>
+                            <td><?php echo "".$registrant['image']."" ?></td>
                             <td>
                                 <form action="computervision.php" method="post">
-                                    <input type="hidden" name="url" value="<?php echo "".$registrant['image']."" ?>">
+                                    <input type="" name="url" value="<?php echo "".$registrant['image']."" ?>">
                                     <input type="submit" name="submit" value="Analyze!" class="btn btn-primary">
                                 </form>
                             </td>
