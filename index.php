@@ -13,16 +13,6 @@ $connectionString = "DefaultEndpointsProtocol=https;AccountName=fauzistorages;Ac
 // Create blob client.
 $blobClient = BlobRestProxy::createBlobService($connectionString);
 
-$host = "dicodingazuredb.database.windows.net";
-$user = "fauzee26";
-$pass = "!backpacker2602";
-        $db = "sub1dicodingfauzi";
-        try {
-            $conn = new PDO("sqlsrv:server = $host; Database = $db", $user, $pass);
-            $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-        } catch(Exception $e) {
-            echo "Failed: " . $e;
-        }
         if (isset($_POST['submit'])) {
 
             $fileToUpload = strtolower($_FILES["fileToUpload"]["name"]);
@@ -39,7 +29,6 @@ $pass = "!backpacker2602";
 
         // Create container.
         $blobClient->createContainer($containerName, $createContainerOptions);
-
        
         //Upload blob
         $blobClient->createBlockBlob($containerName, $fileToUpload, $content);
