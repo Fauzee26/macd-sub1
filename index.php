@@ -84,7 +84,7 @@ use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
                 $jurusan = $_POST['jurusan'];
                 // $image = "https://fauzistorages.blob.core.windows.net/mycontainer/".$fileToUpload;
                 // $image = $_POST['$fileToUpload'];
-                $conn->exec("INSERT INTO [dbo].[formm] (nama, jurusan, image) VALUES ('$name','$jurusan','https://fauzistorages.blob.core.windows.net/mycontainer/$fileToUpload')");
+                $conn->exec("INSERT INTO [dbo].[formm] (nama, jurusan, image) VALUES ('$name','$jurusan','$jurusan')");
             } catch(Exception $e) {
                 echo "Failed: " . $e;
             }
