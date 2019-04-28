@@ -77,12 +77,13 @@ use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
             echo "Failed: " . $e;
         }
         if (isset($_POST['submit'])) {
-                    echo $fileToUpload;
+                    // echo $fileToUpload;
 
             try {
                 $name = $_POST['nama'];
                 $jurusan = $_POST['jurusan'];
-                $conn->exec("INSERT INTO [dbo].[formm] (nama, jurusan) VALUES ('$name','$jurusan')");
+                $image = $_POST['image'];
+                $conn->exec("INSERT INTO [dbo].[formm] (nama, jurusan, image) VALUES ('$name','$jurusan',$fileToUpload)");
             } catch(Exception $e) {
                 echo "Failed: " . $e;
             }
@@ -96,9 +97,11 @@ use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
                     echo "<table>";
                     echo "<tr><th>nama</th>";
                     echo "<th>jurusan</th>";
+                    echo "<th>image</th>";
                     foreach($registrants as $registrant) {
                         echo "<tr><td>".$registrant['nama']."</td>";
                         echo "<td>".$registrant['jurusan']."</td>";
+                        echo "<td>".$registrant['image']."</td>";
                     }
                     echo "</table>";
                 } else {
