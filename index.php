@@ -112,7 +112,7 @@ use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
                             <td><?php echo "".$registrant['image']."" ?></td>
                             <td>
                                 <form action="computervision.php" method="post">
-                                    <input type="" name="url" value="<?php echo "".$registrant['image']."" ?>">
+                                    <input type="hidden" name="url" value="<?php echo "".$registrant['image']."" ?>">
                                     <input type="submit" name="submit" value="Analyze!" class="btn btn-primary">
                                 </form>
                             </td>
