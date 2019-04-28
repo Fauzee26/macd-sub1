@@ -115,6 +115,7 @@ $connectionString = "DefaultEndpointsProtocol=https;AccountName=fauzistorages;Ac
 
 // Create blob client.
 $blobClient = BlobRestProxy::createBlobService($connectionString);
+
 $fileToUpload = strtolower($_FILES["fileToUpload"]["name"]);
 
         if (isset($_POST['submit'])) {
@@ -133,8 +134,15 @@ $fileToUpload = strtolower($_FILES["fileToUpload"]["name"]);
   // Create container.
         $blobClient->createContainer($containerName, $createContainerOptions);
        
-    $content = fopen($_FILES["fileToUpload"]["tmp_name"], "r");
+       $myfile = fopen($fileToUpload, "r") or die("Unable to open file!");
+        fclose($myfile);
+        
+       # Mengunggah file sebagai block blob
+echo "Uploading BlockBlob: ".PHP_EOL;
+echo $fileToUpload;
+echo "<br />";
     
+    $content = fopen($_FILES["fileToUpload"]["tmp_name"], "r");
       
         //Upload blob
         $blobClient->createBlockBlob($containerName, $fileToUpload, $content);
