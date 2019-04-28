@@ -82,8 +82,8 @@ use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
             try {
                 $name = $_POST['nama'];
                 $jurusan = $_POST['jurusan'];
-                $image = $_POST['image'];
-                $conn->exec("INSERT INTO [dbo].[formm] (nama, jurusan, image) VALUES ('$name','$jurusan',$fileToUpload)");
+                $image = $_POST['fileToUpload'];
+                $conn->exec("INSERT INTO [dbo].[formm] (nama, jurusan, image) VALUES ('$name','$jurusan',$image)");
             } catch(Exception $e) {
                 echo "Failed: " . $e;
             }
