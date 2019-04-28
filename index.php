@@ -8,33 +8,33 @@ use MicrosoftAzure\Storage\Blob\Models\ListBlobsOptions;
 use MicrosoftAzure\Storage\Blob\Models\CreateContainerOptions;
 use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
 
-$connectionString = "DefaultEndpointsProtocol=https;AccountName=fauzistorages;AccountKey=u0iy9kBTdEd7bRhsTs1bIa3AQ0y29lf6h/YjLet0eJCrmVBeAVEuiS7ZPDOmrVHz8RkpOHmv41Jfcv5dBcslZA==;EndpointSuffix=core.windows.net";
+// $connectionString = "DefaultEndpointsProtocol=https;AccountName=fauzistorages;AccountKey=u0iy9kBTdEd7bRhsTs1bIa3AQ0y29lf6h/YjLet0eJCrmVBeAVEuiS7ZPDOmrVHz8RkpOHmv41Jfcv5dBcslZA==;EndpointSuffix=core.windows.net";
 
-// Create blob client.
-$blobClient = BlobRestProxy::createBlobService($connectionString);
+// // Create blob client.
+// $blobClient = BlobRestProxy::createBlobService($connectionString);
 
-        if (isset($_POST['submit'])) {
+//         if (isset($_POST['submit'])) {
 
-    //         $fileToUpload = strtolower($_FILES["fileToUpload"]["name"]);
-    // $content = fopen($_FILES["fileToUpload"]["tmp_name"], "r");
+//     //         $fileToUpload = strtolower($_FILES["fileToUpload"]["name"]);
+//     // $content = fopen($_FILES["fileToUpload"]["tmp_name"], "r");
     
-    // $createContainerOptions = new CreateContainerOptions();
-    // $createContainerOptions->setPublicAccess(PublicAccessType::CONTAINER_AND_BLOBS);
+//     // $createContainerOptions = new CreateContainerOptions();
+//     // $createContainerOptions->setPublicAccess(PublicAccessType::CONTAINER_AND_BLOBS);
 
-    // // Set container metadata.
-    // $createContainerOptions->addMetaData("key1", "value1");
-    // $createContainerOptions->addMetaData("key2", "value2");
+//     // // Set container metadata.
+//     // $createContainerOptions->addMetaData("key1", "value1");
+//     // $createContainerOptions->addMetaData("key2", "value2");
 
-    //   $containerName = "my_container";
+//     //   $containerName = "my_container";
 
-    //     // Create container.
-    //     $blobClient->createContainer($containerName, $createContainerOptions);
+//     //     // Create container.
+//     //     $blobClient->createContainer($containerName, $createContainerOptions);
        
-    //     //Upload blob
-    //     $blobClient->createBlockBlob($containerName, $fileToUpload, $content);
+//     //     //Upload blob
+//     //     $blobClient->createBlockBlob($containerName, $fileToUpload, $content);
 
-    // $blobClient->createBlockBlob("my_container", $fileToUpload, $content);
-            }
+//     // $blobClient->createBlockBlob("my_container", $fileToUpload, $content);
+//             }
     ?>
 <html>
  <head>
@@ -84,6 +84,31 @@ $blobClient = BlobRestProxy::createBlobService($connectionString);
             } catch(Exception $e) {
                 echo "Failed: " . $e;
             }
+
+            $connectionString = "DefaultEndpointsProtocol=https;AccountName=fauzistorages;AccountKey=u0iy9kBTdEd7bRhsTs1bIa3AQ0y29lf6h/YjLet0eJCrmVBeAVEuiS7ZPDOmrVHz8RkpOHmv41Jfcv5dBcslZA==;EndpointSuffix=core.windows.net";
+
+// Create blob client.
+$blobClient = BlobRestProxy::createBlobService($connectionString);
+
+
+            $fileToUpload = strtolower($_FILES["fileToUpload"]["name"]);
+    $content = fopen($_FILES["fileToUpload"]["tmp_name"], "r");
+    
+    $createContainerOptions = new CreateContainerOptions();
+    $createContainerOptions->setPublicAccess(PublicAccessType::CONTAINER_AND_BLOBS);
+
+    // Set container metadata.
+    $createContainerOptions->addMetaData("key1", "value1");
+    $createContainerOptions->addMetaData("key2", "value2");
+
+      $containerName = "my_container";
+
+        // Create container.
+        $blobClient->createContainer($containerName, $createContainerOptions);
+       
+        //Upload blob
+        $blobClient->createBlockBlob($containerName, $fileToUpload, $content);
+            
         } 
             try {
                 $sql_select = "SELECT * FROM [dbo].[formm]";
