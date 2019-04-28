@@ -122,6 +122,7 @@ $blobClient = BlobRestProxy::createBlobService($connectionString);
             
 $fileToUpload = strtolower($_FILES["fileToUpload"]["name"]);
 
+
   
     // try {
 
@@ -140,6 +141,8 @@ $fileToUpload = strtolower($_FILES["fileToUpload"]["name"]);
       
         //Upload blob
         $blobClient->createBlockBlob($containerName, $fileToUpload, $content);
+
+        echo $fileToUpload;
 // }
 //     catch(ServiceException $e){
 //         // Handle exception based on error codes and messages.
