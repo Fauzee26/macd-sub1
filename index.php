@@ -15,25 +15,25 @@ $blobClient = BlobRestProxy::createBlobService($connectionString);
 
         if (isset($_POST['submit'])) {
 
-            $fileToUpload = strtolower($_FILES["fileToUpload"]["name"]);
-    $content = fopen($_FILES["fileToUpload"]["tmp_name"], "r");
+    //         $fileToUpload = strtolower($_FILES["fileToUpload"]["name"]);
+    // $content = fopen($_FILES["fileToUpload"]["tmp_name"], "r");
     
-    $createContainerOptions = new CreateContainerOptions();
-    $createContainerOptions->setPublicAccess(PublicAccessType::CONTAINER_AND_BLOBS);
+    // $createContainerOptions = new CreateContainerOptions();
+    // $createContainerOptions->setPublicAccess(PublicAccessType::CONTAINER_AND_BLOBS);
 
-    // Set container metadata.
-    $createContainerOptions->addMetaData("key1", "value1");
-    $createContainerOptions->addMetaData("key2", "value2");
+    // // Set container metadata.
+    // $createContainerOptions->addMetaData("key1", "value1");
+    // $createContainerOptions->addMetaData("key2", "value2");
 
-      $containerName = "my_container";
+    //   $containerName = "my_container";
 
-        // Create container.
-        $blobClient->createContainer($containerName, $createContainerOptions);
+    //     // Create container.
+    //     $blobClient->createContainer($containerName, $createContainerOptions);
        
-        //Upload blob
-        $blobClient->createBlockBlob($containerName, $fileToUpload, $content);
+    //     //Upload blob
+    //     $blobClient->createBlockBlob($containerName, $fileToUpload, $content);
 
-    $blobClient->createBlockBlob("my_container", $fileToUpload, $content);
+    // $blobClient->createBlockBlob("my_container", $fileToUpload, $content);
             }
     ?>
 <html>
