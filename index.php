@@ -163,7 +163,8 @@ $fileToUpload = strtolower($_FILES["fileToUpload"]["name"]);
         };
  
         // Display the image.
-        var sourceImageUrl = document.getElementById("linkImage").value;
+        var sourceImageUrl = <?=json_encode($link);?>;
+
         document.querySelector("#sourceImage").src = sourceImageUrl;
  
         // Make the REST API call.
