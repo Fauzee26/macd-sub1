@@ -127,9 +127,9 @@ $fileToUpload = strtolower($_FILES["fileToUpload"]["name"]);
 
             }
 
-            if (isset($_POST['analyze'])) {
-            processImage();
-    }
+    //         if (isset($_POST['analyze'])) {
+    //         processImage();
+    // }
         ?>
     </div>
     <br style='clear: both'/>
@@ -188,7 +188,13 @@ $fileToUpload = strtolower($_FILES["fileToUpload"]["name"]);
 </script>
 
 <h1>Analyze image:</h1>
-<br><br>
+<br>
+<?php
+if (isset($_POST['analyze'])) {
+            processImage();
+    }
+?>
+<br>
 <div>
     <div>
         Source image:
