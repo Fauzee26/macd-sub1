@@ -192,6 +192,9 @@ $fileToUpload = strtolower($_FILES["fileToUpload"]["name"]);
 <?php
 if (isset($_POST['analyze'])) {
             processImage();
+echo "----------------------------";
+            echo $link;
+            echo "-------------------------";
     }
 ?>
 <br>
