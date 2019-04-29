@@ -41,7 +41,7 @@ if (isset($_POST['analyze'])) {
 		<main role="main" class="container">
     		<div class="starter-template"> <br><br><br>
         		<h1>gambar</h1>
-                <h1><?php echo $url; ?></h1>
+                <h3><?php echo $url; ?></h3>
 				<span class="border-top my-3"></span>
 			</div>
         <script type="text/javascript">
