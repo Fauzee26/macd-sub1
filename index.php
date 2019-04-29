@@ -85,9 +85,9 @@ use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
                             <td><?php echo "".$registrant['jurusan']."" ?></td>
                             <td><?php echo "".$registrant['image']."" ?></td>
                             <td>
-                                <form method="post">
+                                <form action="analyzed.php" method="post">
                                     <input type="hidden" name="link" value="<?php echo "".$registrant['image']."" ?>">
-                                    <input type="submit" name="analyze" value="Analyze" />
+                                    <input type="submit" name="analyze" value="Analyze" class="btn btn-primary">
 
                                 </form>
                             </td>
@@ -127,15 +127,15 @@ $fileToUpload = strtolower($_FILES["fileToUpload"]["name"]);
 
             }
 
-            if (isset($_POST['analyze'])) {
-            processImage();
-    }
+    //         if (isset($_POST['analyze'])) {
+    //         processImage();
+    // }
         ?>
     </div>
     <br style='clear: both'/>
  </div>
 
- <script type="text/javascript">
+ <!-- <script type="text/javascript">
     function processImage() {
         
         var subscriptionKey = "4b145aca423d417594852790c1d1aa79";
@@ -151,7 +151,7 @@ $fileToUpload = strtolower($_FILES["fileToUpload"]["name"]);
         };
  
         // Display the image.
-        var sourceImageUrl = "<?php echo $link ?>";
+        // var sourceImageUrl = "<?php echo $link ?>";
         document.querySelector("#sourceImage").src = sourceImageUrl;
  
         // Make the REST API call.
@@ -204,6 +204,6 @@ $fileToUpload = strtolower($_FILES["fileToUpload"]["name"]);
                 <h3 id="description"></h3>
 
     </div>
-</div>
+</div> -->
  </body>
  </html>
