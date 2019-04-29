@@ -94,9 +94,6 @@ use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
                         </tr>
                         <?php
 
-                        // echo "<tr><td>".$registrant['nama']."</td>";
-                        // echo "<td>".$registrant['jurusan']."</td>";
-                        // echo "<td>".$registrant['image']."</td>";
                     }
 
                     echo "</table>";
@@ -122,44 +119,12 @@ $blobClient = BlobRestProxy::createBlobService($connectionString);
         if (isset($_POST['submit'])) {
             
 $fileToUpload = strtolower($_FILES["fileToUpload"]["name"]);
-
-
-  
-    // try {
-
-  // Create container.
-        // $blobClient->createContainer($containerName, $createContainerOptions);
-       
-       // $myfile = fopen($fileToUpload, "r") or die("Unable to open file!");
-       //  fclose($myfile);
-
-       # Mengunggah file sebagai block blob
-// echo "Uploading BlockBlob: ".PHP_EOL;
-// echo $fileToUpload;
-// echo "<br />";
     
     $content = fopen($_FILES["fileToUpload"]["tmp_name"], "r");
       
         //Upload blob
         $blobClient->createBlockBlob($containerName, $fileToUpload, $content);
 
-// }
-//     catch(ServiceException $e){
-//         // Handle exception based on error codes and messages.
-//         // Error codes and messages are here:
-//         // http://msdn.microsoft.com/library/azure/dd179439.aspx
-//         $code = $e->getCode();
-//         $error_message = $e->getMessage();
-//         echo $code.": ".$error_message."<br />";
-//     }
-//     catch(InvalidArgumentTypeException $e){
-//         // Handle exception based on error codes and messages.
-//         // Error codes and messages are here:
-//         // http://msdn.microsoft.com/library/azure/dd179439.aspx
-//         $code = $e->getCode();
-//         $error_message = $e->getMessage();
-//         echo $code.": ".$error_message."<br />";
-//     }
             }
         ?>
     </div>
