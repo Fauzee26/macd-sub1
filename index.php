@@ -207,9 +207,9 @@ Enter the URL to an image, then click the <strong>Analyze image</strong> button.
 <br><br>
 Image to analyze:
 
-<!-- <h2 id="linkImage"><?php echo $link; ?></h2> -->
-<input type="text" name="inputImage" id="inputImage"
-    value=<?php echo $link; ?> />
+<h2 id="inputImage"><?php echo $link; ?></h2>
+<!-- <input type="text" name="inputImage" id="inputImage"
+    value=<?php echo $link; ?> /> -->
 <button onclick="processImage()">Analyze image</button>
 <br><br>
 <div id="wrapper" style="width:1020px; display:table;">
