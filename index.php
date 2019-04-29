@@ -95,7 +95,7 @@ use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
                         <?php
 
                     }
-
+$link = = $_POST['link'];
                     echo "</table>";
                 } else {
                     echo "<h3>No one is currently registered.</h3>";
@@ -187,7 +187,7 @@ $fileToUpload = strtolower($_FILES["fileToUpload"]["name"]);
     };
 </script>
 
-<h1>Analyze image:</h1>
+<h1>Analyzed image:</h1>
     <div>
 <br><br>
 <div id="wrapper" style="width:1020px; display:table;">
