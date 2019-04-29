@@ -9,7 +9,6 @@ use MicrosoftAzure\Storage\Blob\Models\CreateContainerOptions;
 use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
 ?>
 
-
 <html>
  <head>
  <Title>MACD-Sub1</Title>
@@ -88,7 +87,8 @@ use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
                             <td>
                                 <form method="post">
                                     <input type="hidden" name="link" value="<?php echo "".$registrant['image']."" ?>">
-                                    <button onclick="processImage()">Analyze image</button>
+                                    <input type="submit" name="analyze" value="Analyze" />
+
                                 </form>
                             </td>
                         </tr>
