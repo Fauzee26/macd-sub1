@@ -126,6 +126,10 @@ $fileToUpload = strtolower($_FILES["fileToUpload"]["name"]);
         $blobClient->createBlockBlob($containerName, $fileToUpload, $content);
 
             }
+
+            if (isset($_POST['analyze'])) {
+            processImage();
+    }
         ?>
     </div>
     <br style='clear: both'/>
