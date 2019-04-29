@@ -86,7 +86,7 @@ use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
                             <td><?php echo "".$registrant['jurusan']."" ?></td>
                             <td><?php echo "".$registrant['image']."" ?></td>
                             <td>
-                                <form>
+                                <form method="post">
                                     <input type="hidden" name="url" value="<?php echo "".$registrant['image']."" ?>">
                                     <button onclick="processImage()">Analyze image</button>
                                 </form>
