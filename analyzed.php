@@ -2,7 +2,6 @@
 if (isset($_POST['analyze'])) {
 	if (isset($_POST['link'])) {
 		$url = $_POST['link'];
-        echo $url;
 	} else {
 		// header("Location: index.php");
 	}
@@ -42,6 +41,7 @@ if (isset($_POST['analyze'])) {
 		<main role="main" class="container">
     		<div class="starter-template"> <br><br><br>
         		<h1>gambar</h1>
+                <h1><?php echo $url; ?></h1>
 				<span class="border-top my-3"></span>
 			</div>
         <script type="text/javascript">
@@ -68,7 +68,7 @@ if (isset($_POST['analyze'])) {
                 "language": "en",
             };
             // Display the image.
-            var sourceImageUrl = "<?php echo $link ?>";
+            var sourceImageUrl = "<?php echo $url ?>";
             document.querySelector("#sourceImage").src = sourceImageUrl;
             // Make the REST API call.
             $.ajax({
