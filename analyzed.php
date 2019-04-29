@@ -3,10 +3,10 @@ if (isset($_POST['analyze'])) {
 	if (isset($_POST['link'])) {
 		$url = $_POST['link'];
 	} else {
-		header("Location: index.php");
+		// header("Location: index.php");
 	}
 } else {
-	header("Location: index.php");
+	// header("Location: index.php");
 }
 ?>
 
@@ -34,11 +34,7 @@ if (isset($_POST['analyze'])) {
 		</button>
 		<div class="collapse navbar-collapse" id="navbarsExampleDefault">
 			<ul class="navbar-nav mr-auto">
-			<li class="nav-item">
-				<a class="nav-link" href="https://smart-parkir.azurewebsites.net/">Home</a>
-			</li>
-			<li class="nav-item active">
-				<a class="nav-link" href="https://smart-parkir.azurewebsites.net/analyze.php">Analisis Kendaraan<span class="sr-only">(current)</span></a>
+			
 			</li>
 		</div>
 		</nav>
