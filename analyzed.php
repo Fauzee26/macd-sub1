@@ -2,6 +2,7 @@
 if (isset($_POST['analyze'])) {
 	if (isset($_POST['link'])) {
 		$url = $_POST['link'];
+        echo $url;
 	} else {
 		// header("Location: index.php");
 	}
