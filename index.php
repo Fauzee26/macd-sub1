@@ -95,7 +95,7 @@ use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
                         <?php
 
                     }
-$link = = $_POST['link'];
+// $link = $_POST['link'];
                     echo "</table>";
                 } else {
                     echo "<h3>No one is currently registered.</h3>";
