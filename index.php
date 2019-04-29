@@ -188,7 +188,8 @@ $fileToUpload = strtolower($_FILES["fileToUpload"]["name"]);
 </script>
 
 <h1>Analyze image:</h1>
-<br>
+    <div>
+
 <?php
 if (isset($_POST['analyze'])) {
             processImage();
@@ -197,8 +198,10 @@ echo "----------------------------";
             echo "-------------------------";
     }
 ?>
+    </div>
+
 <br>
-<div>
+
     <div>
         Source image:
         <br><br>
@@ -206,6 +209,5 @@ echo "----------------------------";
         <h3 id="description"></h3>
 
     </div>
-</div>
  </body>
  </html>
