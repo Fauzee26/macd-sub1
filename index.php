@@ -86,9 +86,9 @@ use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
                             <td><?php echo "".$registrant['jurusan']."" ?></td>
                             <td><?php echo "".$registrant['image']."" ?></td>
                             <td>
-                                <form action="computervision.php" method="post">
+                                <form>
                                     <input type="hidden" name="url" value="<?php echo "".$registrant['image']."" ?>">
-                                    <input type="submit" name="submit" value="Analyze!" class="btn btn-primary">
+                                    <button onclick="processImage()">Analyze image</button>
                                 </form>
                             </td>
                         </tr>
@@ -147,7 +147,7 @@ $fileToUpload = strtolower($_FILES["fileToUpload"]["name"]);
         };
  
         // Display the image.
-        var sourceImageUrl = document.getElementById("inputImage").value;
+        var sourceImageUrl = document.getElementById("url").value;
         document.querySelector("#sourceImage").src = sourceImageUrl;
  
         // Make the REST API call.
