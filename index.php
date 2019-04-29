@@ -86,7 +86,7 @@ use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
                             <td><?php echo "".$registrant['image']."" ?></td>
                             <td>
                                 <form method="post">
-                                    <input type="" name="link" value="<?php echo "".$registrant['image']."" ?>">
+                                    <input type="hidden" name="link" value="<?php echo "".$registrant['image']."" ?>">
                                     <input type="submit" name="analyze" value="Analyze" />
 
                                 </form>
@@ -189,8 +189,8 @@ $fileToUpload = strtolower($_FILES["fileToUpload"]["name"]);
 
 <h1>Analyze image:</h1>
 <br><br>
-<div id="wrapper" style="width:1020px; display:table;">
-    <div id="imageDiv" style="width:420px; display:table-cell;">
+<div>
+    <div>
         Source image:
         <br><br>
         <img id="sourceImage" width="400" />
